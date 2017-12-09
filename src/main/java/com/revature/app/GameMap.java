@@ -51,7 +51,7 @@ public class GameMap{
                 if(i != 0){
                     Room left = gm.get(i - 1).get(j);
                     r.addAdjRoom(left);
-                    r.setWest(r);
+                    r.setWest(left);
                 }
 
                 //get north room, if i then current room is on the most north,
@@ -59,7 +59,7 @@ public class GameMap{
                 if(j != 0){
                     Room north = gm.get(i).get(j - 1);
                     r.addAdjRoom(north);
-                    r.setNorth(r);
+                    r.setNorth(north);
                 }
 
 
@@ -68,7 +68,7 @@ public class GameMap{
                 if(i != (width - 1)){
                     Room right = gm.get(i + 1).get(j);
                     r.addAdjRoom(right);
-                    r.setEast(r);
+                    r.setEast(right);
                 }
 
                 //get north room, if i then current room is on the most north,
@@ -76,7 +76,7 @@ public class GameMap{
                 if(j != (length - 1)){
                     Room south = gm.get(i).get(j + 1);
                     r.addAdjRoom(south);
-                    r.setSouth(r);
+                    r.setSouth(south);
                 }
                 
             }
@@ -94,7 +94,7 @@ public class GameMap{
     public void printMap(){
       for(int i = 0; i < width; i++){
           for(int j = 0; j < length; j++){
-              System.out.print(gm.get(i).get(j).getName() + " ");
+              System.out.print(gm.get(j).get(i).getName() + " ");
           }
           System.out.print("\n");
       }

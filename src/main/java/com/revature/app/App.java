@@ -29,10 +29,12 @@ public class App {
         r8.setName("Room 8");
         Room r9 = m.getRoom(2, 2);
         r9.setName("Room 9");
+
+        //setup Room Descriptions from File IO
         
         
         m.printMap();
-        m.printRooms();
+        //m.printRooms();
 
         //Game loop
         boolean done = false;
@@ -42,8 +44,20 @@ public class App {
         Player p = new Player(m.getRoom(0, 0));
         while(done == false){
             p.playRoomEvent();
-            break;
 
+            boolean validDecision = false;
+            while(validDecision == false){
+                String nr = sc.nextLine();
+                Room nextRoom = p.getNextRoom(nr);
+                if(nextRoom != null){
+                    p.setCurrentRoom(nextRoom);
+                    validDecision = true;
+                }
+                else{
+                    System.out.println("You cannot go there!");
+                }
+            }    
+        
         }
         
 
