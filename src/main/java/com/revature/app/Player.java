@@ -10,9 +10,9 @@ public class Player{
     }
 
     public void playRoomEvent(){
-        System.out.println("Playing room event of " + curRoom.getName());
+        //System.out.println("Playing room event of " + curRoom.getName());
         //show room descriptions
-        //curRoom.printRoomDesc();
+        curRoom.printRoomDesc();
 
         //show options
         printOptions();
@@ -23,8 +23,13 @@ public class Player{
     }
 
     public void setCurrentRoom(Room r){
-        System.out.println("Moving to :" +  r.getName());
+        //System.out.println("Moving to :" +  r.getName());
+        //System.out.println("\n");
         this.curRoom = r;
+    }
+
+    public Room getCurrentRoom(){
+        return this.curRoom;
     }
 
     public Room getNextRoom(String direction){

@@ -12,7 +12,7 @@ public class Room{
     private Room sRoom = null;
     private Room eRoom = null;
     private LinkedList<Room> adjRooms = new LinkedList<Room>();
-    private boolean isEnd = false;
+    private boolean isExit = false;
 
     public Room(int x, int y){
         this.x = x;
@@ -49,8 +49,10 @@ public class Room{
         System.out.println(desc);
     }
 
-    public boolean isFinished(){
-        return this.isEnd;
+    
+
+    public Room getAdjRoom(int index){
+        return adjRooms.get(index);
     }
     
 
@@ -86,7 +88,21 @@ public class Room{
         return wRoom;
     }
 
+    public int numOfAdjRooms(){
+        return adjRooms.size();
+    }
 
+    public void setExit(){
+        isExit = true;
+    }
+
+    public boolean isExit(){
+        return this.isExit;
+    }
+
+    public void setDescription(String d){
+        desc = d;
+    }
 
 
 }
